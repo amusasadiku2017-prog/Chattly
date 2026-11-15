@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#020b08">
+
+<title>CHATTLY</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="brand">
+        <div class="logo">C</div>
+        <div>
+            <h1>CHATTLY <span>✓</span></h1>
+            <p>Connect • Chat • Create</p>
+        </div>
+    </div>
+
+    <div class="header-icons">
+        <button onclick="notify('Camera coming soon')">📷</button>
+        <button onclick="notify('Notifications')">♧</button>
+        <button onclick="showPage('profile')">⋮</button>
+    </div>
+
+</header>
+
+
+<main>
+
+<!-- CHATS -->
+
+<section id="chats" class="page active">
+
+    <div class="search-box">
+        <span>⌕</span>
+        <input id="search" placeholder="Search CHATTLY or ask AI..." oninput="searchChats()">
+        <span class="sparkle" onclick="showPage('ai')">✦</span>
+    </div>
+
+    <div class="filters">
+
+        <button class="filter active" onclick="filterChats('All',this)">All</button>
+
+        <button class="filter" onclick="filterChats('Unread',this)">Unread</button>
+
+        <button class="filter" onclick="filterChats('Favorites',this)">Favorites ♡</button>
+
+        <button class="filter" onclick="filterChats('Groups',this)">Groups</button>
+
+        <button class="filter" onclick="filterChats('Friends',this)">Friends</button>
+
+    </div>
+
+    <div class="section-label">YOUR CONVERSATIONS</div>
+
+    <div id="chatList"></div>
+
+    <button class="new-chat" onclick="showPage('contacts')">＋</button>
+
+</section>
+
+
+<!-- UPDATES -->
+
+<section id="updates" class="page">
+
+    <h2>Updates</h2>
+    <p class="muted">Share moments with your connections.</p>
+
+    <div class="story-list">
+
+        <div class="story">
+            <div class="story-avatar">＋</div>
+            <p>My Story</p>
+        </div>
+
+        <div class="story">
+            <div class="story-avatar">🎨</div>
+            <p>Art Club</p>
+        </div>
+
+        <div class="story">
+            <div class="story-avatar">📚</div>
+            <p>School</p>
+        </div>
+
+        <div class="story">
+            <div class="story-avatar">💚</div>
+            <p>Friends</p>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <h3>My Updates</h3>
+        <p>Share something new with your connections.</p>
+        <button onclick="notify('Updates require backend setup')">Create Update</button>
+    </div>
+
+</section>
+
+
+<!-- COMMUNITIES -->
+
+<section id="communities" class="page">
+
+    <h2>Communities</h2>
+    <p class="muted">Find your people. Share your ideas.</p>
+
+    <div class="card">
+        <h3>🌍 Discover Communities</h3>
+        <p>Explore technology, education, art and creative communities.</p>
+        <button onclick="notify('Community creation coming soon')">Create Community</button>
+    </div>
+
+    <div class="card">
+        <h3>👥 My Communities</h3>
+        <p>Your joined communities will appear here.</p>
+    </div>
+
+</section>
+
+
+<!-- CALLS -->
+
+<section id="calls" class="page">
+
+    <h2>Calls</h2>
+    <p class="muted">Stay connected wherever you are.</p>
+
+    <div class="card">
+        <div class="big-icon">☎</div>
+        <h3>Your calls</h3>
+        <p>Your recent voice and video calls will appear here.</p>
+        <p class="muted">Calling requires the secure calling service to be configured.</p>
+    </div>
+
+</section>
+
+
+<!-- AI -->
+
+<section id="ai" class="page">
+
+    <div class="ai-header">
+        <div class="ai-avatar">✦</div>
+        <h2>CHATTLY AI</h2>
+        <p>Your intelligent creative companion.</p>
+    </div>
+
+    <div class="ai-modes">
+
+        <button onclick="setMode('General')">💬 General</button>
+        <button onclick="setMode('Study')">📚 Study</button>
+        <button onclick="setMode('Creative')">💡 Creative</button>
+        <button onclick="setMode('Coding')">💻 Coding</button>
+        <button onclick="setMode('Calm')">🌿 Calm</button>
+
+    </div>
+
+    <div id="aiMessages" class="ai-messages">
+
+        <div class="message ai-message">
+            Hello! I'm CHATTLY AI. What would you like to explore today?
+        </div>
+
+    </div>
+
+    <div class="ai-input">
+        <input id="aiInput" placeholder="Ask CHATTLY anything...">
+        <button onclick="sendAI()">➤</button>
+    </div>
+
+    <p class="muted small">AI demo interface. Connect a secure AI backend to activate intelligent responses.</p>
+
+</section>
+
+
+<!-- CONTACTS -->
+
+<section id="contacts" class="page">
+
+    <h2>Contacts</h2>
+    <p class="muted">Find your connections.</p>
+
+    <div class="card">
+
+        <h3>Add Contact</h3>
+
+        <input id="contactName" placeholder="Contact name">
+
+        <input id="contactPhone" placeholder="Phone number">
+
+        <button onclick="saveContact()">Save Contact</button>
+
+    </div>
+
+    <div id="contactsList"></div>
+
+</section>
+
+
+<!-- PROFILE -->
+
+<section id="profile" class="page">
+
+    <h2>My CHATTLY</h2>
+
+    <div class="profile-card">
+        <div class="profile-avatar">C</div>
+        <h3>My Profile</h3>
+        <p class="muted">Welcome to CHATTLY</p>
+    </div>
+
+    <div class="card">
+        <h3>🔐 Security Centre</h3>
+        <p>Manage your account privacy and security.</p>
+        <button onclick="notify('Security settings require backend setup')">Security Settings</button>
+    </div>
+
+    <div class="card">
+        <h3>Privacy</h3>
+        <p>Manage your visibility and personal information.</p>
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="bottom-nav">
+
+    <button class="nav active" onclick="showPage('chats',this)">
+        <span>▤</span>
+        Chats
+    </button>
+
+    <button class="nav" onclick="showPage('updates',this)">
+        <span>◉</span>
+        Updates
+    </button>
+
+    <button class="nav" onclick="showPage('communities',this)">
+        <span>♧</span>
+        Communities
+    </button>
+
+    <button class="nav" onclick="showPage('calls',this)">
+        <span>☎</span>
+        Calls
+    </button>
+
+    <button class="nav" onclick="showPage('ai',this)">
+        <span>✦</span>
+        AI
+    </button>
+
+</nav>
+
+
+<div id="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+  </html>
