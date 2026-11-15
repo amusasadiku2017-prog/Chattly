@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #020b08;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#authScreen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.auth-logo, .logo {
+    background: #00b879;
+    color: #001b12;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+.auth-logo {
+    width: 75px;
+    height: 75px;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+h1 span, h2 span {
+    color: #00e69b;
+}
+
+#authScreen > p {
+    color: #8aa99c;
+    margin: 10px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 400px;
+    background: #0b1914;
+    padding: 25px;
+    border-radius: 20px;
+    margin-top: 25px;
+}
+
+input {
+    width: 100%;
+    padding: 16px;
+    background: #14251e;
+    color: white;
+    border: 1px solid #243b30;
+    border-radius: 12px;
+    margin: 8px 0;
+    outline: none;
+}
+
+input:focus {
+    border-color: #00c987;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    color: white;
+    background: #00ad75;
+    padding: 13px;
+    border-radius: 10px;
+}
+
+#authButton {
+    width: 100%;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.switch {
+    margin-top: 20px;
+    text-align: center;
+    color: #a1b6aa;
+}
+
+.switch a {
+    color: #00e69b;
+    cursor: pointer;
+}
+
+#authMessage {
+    color: #ff7777;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px;
+    border-bottom: 1px solid #193027;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    font-size: 25px;
+}
+
+.brand small {
+    color: #8aa99c;
+}
+
+main {
+    padding: 20px;
+    padding-bottom: 100px;
+}
+
+main h2 {
+    margin-bottom: 8px;
+}
+
+.muted, #welcome {
+    color: #82998d;
+    margin: 10px 0;
+}
+
+#userSearch {
+    margin: 20px 0;
+}
+
+#searchResults, #chatList {
+    margin-bottom: 25px;
+}
+
+.user-result, .chat-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    background: #0c1b14;
+    border: 1px solid #193329;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 14px;
+    cursor: pointer;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    background: #087a54;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+}
+
+#conversation {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 170px);
+}
+
+.chat-header {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 15px 0;
+}
+
+#messages {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px 0;
+}
+
+.message {
+    max-width: 80%;
+    padding: 13px;
+    border-radius: 14px;
+    background: #14271e;
+    overflow-wrap: anywhere;
+}
+
+.my-message {
+    align-self: flex-end;
+    background: #087a54;
+}
+
+.message-input {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.message-input input {
+    flex: 1;
+}
+
+nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: #091810;
+    border-top: 1px solid #193027;
+    padding: 12px 5px;
+}
+
+nav button {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+nav small {
+    font-size: 10px;
+}
+
+#toast {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #087a54;
+    padding: 12px 20px;
+    border-radius: 10px;
+    display: none;
+    z-index: 10;
+  }
